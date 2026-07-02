@@ -1,0 +1,26 @@
+{
+    "title": "Shopify Discount Code Finder Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "storeUrls": {
+            "title": "Shopify Store URLs",
+            "type": "array",
+            "description": "List of Shopify store URLs to scan for discount codes.",
+            "editor": "requestListSources",
+            "default": [{"url": "https://colourpop.com"}],
+            "prefill": [{"url": "https://colourpop.com"}]
+        },
+        "maxPagesPerStore": {
+            "title": "Max Pages to Scan Per Store",
+            "type": "integer",
+            "description": "How deep into the store should the crawler look for codes? (Default 5)",
+            "editor": "number",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 5,
+            "prefill": 5
+        }
+    },
+    "required": ["storeUrls"]
+}

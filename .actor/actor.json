@@ -1,0 +1,24 @@
+{
+    "actorSpecification": 1,
+    "name": "shopify-discount-finder",
+    "title": "Shopify Discount Code Finder",
+    "description": "Automatically scan Shopify storefronts, banners, and announcement bars to extract working promotional discount codes and coupons.",
+    "version": "0.0",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024,
+    "pricingModel": "PAY_PER_EVENT",
+    "pricingEvents": [
+        {
+            "eventName": "apify-actor-start",
+            "pricePerEvent": 0.00005,
+            "description": "Charged once when Actor starts"
+        },
+        {
+            "eventName": "code-extracted",
+            "pricePerEvent": 0.002,
+            "description": "Charged per unique discount code successfully found and extracted"
+        }
+    ]
+}

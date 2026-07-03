@@ -1,3 +1,4 @@
+import { armKillSwitch, disarmKillSwitch } from './utils/timeoutManager.js';
 import { Actor } from 'apify';
 import { CheerioCrawler, log } from 'crawlee';
 
@@ -130,7 +131,9 @@ try {
     log.info(`Starting Shopify Discount Finder for ${startUrls.length} stores...`);
     
     await crawler.addRequests(startUrls);
+    armKillSwitch(crawler);
     await crawler.run();
+    disarmKillSwitch();
 
     log.info(`🎉 Finished! Extracted a total of ${totalCodesExtracted} unique discount codes.`);
 } catch (error) {
